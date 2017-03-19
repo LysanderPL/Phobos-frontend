@@ -1,14 +1,44 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>PhobosFrontend</title>
-  <base href="/">
+    <meta charset="utf-8">
+    <title>PhobosFrontend</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/styles/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/css/app.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+<top-navbar></top-navbar>
+<div class="main-background-image"></div>
+<div class="top-offset col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="hidden-sx hidden-sm col-md-1 col-lg-1"></div>
+
+    <div class="main-body-container col-xs-12 col-sm-12 col-md-10 col-lg-10">
+        <div class="col-md-2 col-lg-2"></div>
+        <div style="text-align: justify"
+             class="content-box content-box-separate-bottom glyphiconMedium col-md-10 col-lg-10">
+            <resource-bar></resource-bar>
+        </div>
+
+        <div class="content-box content-box-separate-left content-box-separate-bottom col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="content-box col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                <side-navbar></side-navbar>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <app-overview>Loading...</app-overview>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-sx hidden-sm col-md-1 col-lg-1"></div>
+</div>
 </body>
+
+<footer>
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+</footer>
 </html>
