@@ -3,3 +3,49 @@
     background: rgba(215, 215, 215, 0.41);
     top: 52px;
 }
+
+.main-background-image {
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -60px;
+    backface-visibility: hidden;
+    background: url(/assets/imgs/2784414-illustration_missionscreen_fleetaction-n.jpg) scroll;
+    background-size: cover;
+    z-index: -999;
+}
+
+.content-box {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-top: 10px;
+    text-align: left;
+    height: 50%;
+    background: rgba(248, 249, 255, 0.61);
+}
+
+.content-box-separate-left {
+
+}
+
+.content-box-separate-bottom {
+    margin-bottom: 10px;
+}
+
+.top-offset {
+    top: 8px;
+}
+
+.glyphiconBigger {
+    font-size: 23px;
+}
+
+.glyphiconMedium {
+    font-size: 19px;
+}
+
+.navbar-default .navbar-nav > li > a.router-link-active {
+    color: #555;
+    background-color: #e7e7e7;
+}
