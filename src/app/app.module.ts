@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpModule, Response, Http} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {TopNavbarComponent} from "./navbar/top-navbar.component";
@@ -11,6 +11,8 @@ import {OverviewComponent} from "./overview/overview.component";
 import {NotFoundComponent} from "./not-found.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ResourceComponent} from "./resource/resource.component";
+import {BuildingsComponent} from "./buildings/buildings.component";
+import {PlanetService} from "./services/planet.service";
 
 @NgModule({
     declarations: [
@@ -20,7 +22,8 @@ import {ResourceComponent} from "./resource/resource.component";
         LoginComponent,
         OverviewComponent,
         NotFoundComponent,
-        ResourceComponent
+        ResourceComponent,
+        BuildingsComponent
     ],
     imports: [
         BrowserModule,
@@ -28,7 +31,7 @@ import {ResourceComponent} from "./resource/resource.component";
         HttpModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [PlanetService],
     bootstrap: [AppComponent, ResourceComponent, TopNavbarComponent, SideNavbarComponent]
 })
 export class AppModule {

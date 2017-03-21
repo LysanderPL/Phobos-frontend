@@ -8,6 +8,7 @@ import {OverviewComponent} from "./overview/overview.component";
 import {LoginComponent} from "./login/login.component";
 import {NgModule} from "@angular/core";
 import {NotFoundComponent} from "./not-found.component";
+import {BuildingsComponent} from "./buildings/buildings.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
     {
         path: 'overview',
         component: OverviewComponent
+    },
+    {
+        path: 'buildings',
+        component: BuildingsComponent
     },
     {
         path: 'login',
