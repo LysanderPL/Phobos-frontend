@@ -1,9 +1,70 @@
 <div class="content-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <span class="glyphicon glyphicon-globe glyphiconBigger"></span>
-    <span class="glyphiconBigger">Nazwa planety: <b>{{planetName}}</b></span>
+    <span class="glyphiconBigger"> <b>{{planet.name}}</b></span>
 </div>
 <div class="content-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <img style="border-radius: 5px" class="roundBorders"
-         src="/assets/imgs/Planets/climate_2/swampplanet1.jpg">
-    <br/>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <br/>
+        <img style="border-radius: 5%" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 roundBorders "
+             src="/assets/imgs/Planets/climate_2/swampplanet1.jpg">
+        <br/>
+    </div>
+    <div class="content-box glyphiconBigger col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <br/>
+        <table>
+            <tr>
+                <th><span class="glyphicon glyphicon-king"></span> Ustrój imperialny:</th>
+                <th>&nbsp;&nbsp;&nbsp;</th>
+                <th>{{planet.imperialSystem}}</th>
+            </tr>
+            <tr class="blank-row"></tr>
+            <tr>
+                <th><span class="glyphicon glyphicon-queen"></span> Ustrój planetrany:</th>
+                <th></th>
+                <th>{{planet.planetarySystem}}</th>
+            </tr>
+            <tr class="blank-row"></tr>
+            <tr>
+                <th><span class="glyphicon glyphicon-user"></span> Rasa dominująca:</th>
+                <th></th>
+                <th>{{planet.race}}</th>
+            </tr>
+            <tr class="blank-row"></tr>
+            <tr>
+                <th><span class="glyphicon glyphicon-cloud"></span> Klimat:</th>
+                <th></th>
+                <th>{{planet.climate}}</th>
+            </tr>
+            <tr class="blank-row"></tr>
+        </table>
+        <br/>
+    </div>
+    <div class="content-box glyphiconBigger col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <span class="glyphicon glyphicon-flag"></span> Popracie planetarne:
+        <div class="progress">
+                        <span class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100" [style.width]="planet.planetarySupport+'%'">
+                            <span class="sr-only">{{planet.planetarySupport}}%</span>
+                        </span>
+        </div>
+
+        <span class="glyphicon glyphicon-flag"></span> Kontrola naziemna:
+        <div class="progress">
+                        <span class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100" [style.width]="planet.groundControl+'%'">
+                            <span class="sr-only">{{planet.groundControl}}%</span>
+                        </span>
+        </div>
+
+        <span class="glyphicon glyphicon-flag"></span> Kontrola orbitalna:
+        <div class="progress">
+                        <span class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100" [style.width]="planet.orbitalControl+'%'">
+                            <span class="sr-only">{{planet.orbitalControl}}%</span>
+                        </span>
+        </div>
+    </div>
 </div>
