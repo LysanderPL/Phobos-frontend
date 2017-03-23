@@ -2,5 +2,9 @@
   "ferrum": 500,
   "uranium": 500,
   "silicon": 500,
-  "helium": 500
+  "helium": 500,
+  "uraniumIncome": 20,
+  "ferrumIncome": 50,
+  "siliconIncome": 15,
+  "heliumIncome": 19.5
 }

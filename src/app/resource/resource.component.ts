@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {ResourcesService} from "../services/resources.service";
-import {Observable} from "rxjs";
+import {Resources} from "../library/entities/resources";
 @Component({
     selector: 'resource-bar',
     templateUrl: 'resource.component.html',
@@ -11,29 +11,14 @@ import {Observable} from "rxjs";
 })
 export class ResourceComponent implements OnInit {
 
-    private uranium: number = 0;
-    private ferrum: number = 0;
-    private silicon: number = 0;
-    private helium: number = 0;
-
-    private Credits: number = 0;
-    private _planetData;
+    private resources: Resources;
 
     constructor(private resourcesService: ResourcesService) {
     }
 
     ngOnInit(): void {
-        this.resourcesService.requestResourcesData().subscribe(val => {
-            this.ferrum = val['ferrum'];
-            this.silicon = val['silicon'];
-            this.helium = val['helium'];
-            this.uranium = val['uranium'];
-            console.log(val)
-        });
-        setInterval(() => {
-            this.ferrum = this.ferrum+100;
-            console.log(this.ferrum);
-        }, 1000);
+        this.resources = this.resourcesService.getResourcesEntity();
+        this.resourcesService.getResourcesSubject().subscribe((res: Resources) => this.resources = res);
     }
 
 }
