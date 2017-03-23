@@ -1,5 +1,12 @@
 {
   "planet_id": "6f9c8faba51b0aa06e1a88d2f0ee3c00",
-  "planet_name": "Phobos",
-  "planet_image": "swampplanet1.jpg"
+  "name": "Phobos",
+  "image": "swampplanet1.jpg",
+ "imperialSystem": "Imperium kontraktowe",
+  "planetarySystem": "Monarchia oświecona",
+  "race": "Quarianie",
+  "climate": "Tropikalny",
+  "groundControl": 45,
+  "orbitalControl": 20,
+  "planetarySupport": 70
 }

@@ -13,6 +13,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import {ResourceComponent} from "./resource/resource.component";
 import {BuildingsComponent} from "./buildings/buildings.component";
 import {PlanetService} from "./services/planet.service";
+import {ResourcesService} from "./services/resources.service";
+import {BuildingsPipe} from "./library/pipes/buildingsPipe";
 
 @NgModule({
     declarations: [
@@ -23,7 +25,8 @@ import {PlanetService} from "./services/planet.service";
         OverviewComponent,
         NotFoundComponent,
         ResourceComponent,
-        BuildingsComponent
+        BuildingsComponent,
+        BuildingsPipe
     ],
     imports: [
         BrowserModule,
@@ -31,7 +34,7 @@ import {PlanetService} from "./services/planet.service";
         HttpModule,
         AppRoutingModule
     ],
-    providers: [PlanetService],
+    providers: [ResourcesService],
     bootstrap: [AppComponent, ResourceComponent, TopNavbarComponent, SideNavbarComponent]
 })
 export class AppModule {

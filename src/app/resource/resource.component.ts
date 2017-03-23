@@ -6,8 +6,7 @@ import {ResourcesService} from "../services/resources.service";
 import {Resources} from "../library/entities/resources";
 @Component({
     selector: 'resource-bar',
-    templateUrl: 'resource.component.html',
-    providers: [ResourcesService]
+    templateUrl: 'resource.component.html'
 })
 export class ResourceComponent implements OnInit {
 
