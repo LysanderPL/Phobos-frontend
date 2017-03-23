@@ -8,4 +8,13 @@ import {Component} from "@angular/core";
 })
 export class BuildingsComponent {
 
+    private filter: string = '';
+
+    private buildingsList = [
+        {"name": "Kopalnia Ferrum", "description": "Wydobywnie Ferrum"},
+        {"name": "Kopalnia Urnium", "description": "Wydobywnie Ferrum"},
+        {"name": "Fabryka Slicon'u", "description": "Wydobywnie Ferrum"},
+        {"name": "Rafineria Hellium", "description": "Wydobywnie Ferrum"}
+    ];
+
 }
