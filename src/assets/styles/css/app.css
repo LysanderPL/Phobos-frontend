@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Jura:500');
+
+* {
+    font-family: 'Jura', sans-serif;
+}
+
 .main-body-container {
     border-radius: 5px;
     background: rgba(215, 215, 215, 0.41);
@@ -49,3 +55,8 @@
     color: #555;
     background-color: #e7e7e7;
 }
+
+.blank-row {
+    height: 10px !important;
+}
+
