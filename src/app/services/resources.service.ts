@@ -1,39 +1,37 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Observable, Subject} from "rxjs";
-import {Resources} from "../library/entities/resources";
+import {ResourcesEntity} from "../library/entities/resources.entity";
+import {ApiService} from "./api.service";
+import {StaticValues} from "../library/static.values";
 /**
  * Created by maciej on 21.03.17.
  */
 
 @Injectable()
-export class ResourcesService {
+export class ResourcesService extends ApiService {
 
-    private resources: Resources = new Resources(0, 0, 0, 0);
-    private subject: Subject<Resources> = new Subject<Resources>();
+    private resources: ResourcesEntity = new ResourcesEntity();
+    private subject: Subject<ResourcesEntity> = new Subject<ResourcesEntity>();
 
-    private uraniumIncome: number;
-    private ferrumIncome: number;
-    private siliconIncome: number;
-    private heliumIncome: number;
-
-    constructor(private http: Http) {
+    constructor(protected http: Http) {
+        super(http);
         this.getResourceDataFromServer();
         this.setUpSynchronizingWithServer();
     }
 
-    public getResourcesSubject(): Subject<Resources> {
+    public getResourcesSubject(): Subject<ResourcesEntity> {
         return this.subject;
     }
 
-    public getResourcesEntity(): Resources {
+    public getResourcesEntity(): ResourcesEntity {
         return this.resources;
     }
 
     private setUpSynchronizingWithServer(): void {
         setInterval(() => {
             this.getResourceDataFromServer();
-        }, 15000);
+        }, StaticValues.timeInterval);
     }
 
     private requestResourcesData(): Observable<Response> {
@@ -41,16 +39,9 @@ export class ResourcesService {
     }
 
     private getResourceDataFromServer(): void {
-        this.requestResourcesData().subscribe(val => {
-            this.resources = new Resources(val['uranium'], val['ferrum'], val['silicon'], val['helium']);
-
-            this.uraniumIncome = val['uraniumIncome'];
-            this.ferrumIncome = val['ferrumIncome'];
-            this.siliconIncome = val['siliconIncome'];
-            this.heliumIncome = val['heliumIncome'];
-
+        this.requestResourcesData().subscribe((val: Object) => {
+            this.resources = this.resources.fromJSON(val);
             this.subject.next(this.resources);
-            console.log(val)
         });
 
     }
