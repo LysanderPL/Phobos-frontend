@@ -2,7 +2,7 @@
  * Created by maciej on 19.03.17.
  */
 import {Component, OnInit} from "@angular/core";
-import {Planet} from "../library/entities/planet";
+import {PlanetEntity} from "../library/entities/planet.entity";
 import {PlanetService} from "../services/planet.service";
 @Component({
     selector: 'overview',
@@ -10,21 +10,16 @@ import {PlanetService} from "../services/planet.service";
     providers: [PlanetService]
 })
 export class OverviewComponent implements OnInit {
-    private planet: Planet = new Planet();
+    private planet: PlanetEntity = new PlanetEntity();
+    private isLoading: boolean = true;
 
     constructor(private planetService: PlanetService) {
     }
 
     ngOnInit(): void {
-        this.planetService.requestPlanetData().subscribe(val => {
-            this.planet.name = val['name'];
-            this.planet.imperialSystem = val['imperialSystem'];
-            this.planet.planetarySystem = val['planetarySystem'];
-            this.planet.race = val['race'];
-            this.planet.climate = val['climate'];
-            this.planet.groundControl = val['groundControl'];
-            this.planet.orbitalControl = val['orbitalControl'];
-            this.planet.planetarySupport = val['planetarySupport'];
+        this.planetService.requestPlanetData().subscribe((val: Object) => {
+            this.planet = this.planet.fromJSON(val);
+            this.isLoading = false;
         });
     }
 

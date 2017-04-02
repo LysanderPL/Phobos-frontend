@@ -1,20 +1,31 @@
 /**
  * Created by maciej on 20.03.17.
  */
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {BuildingsService} from "../services/buildings.service";
+import {BuildingEntity} from "../library/entities/building.entity";
 @Component({
     selector: 'buildings',
-    templateUrl: 'buildings.component.html'
+    templateUrl: 'buildings.component.html',
+    providers: [BuildingsService]
 })
-export class BuildingsComponent {
-
+export class BuildingsComponent implements OnInit {
     private filter: string = '';
+    private buildingsList: Array<BuildingEntity>;
+    private isLoading: boolean = true;
 
-    private buildingsList = [
-        {"name": "Kopalnia Ferrum", "description": "Wydobywnie Ferrum"},
-        {"name": "Kopalnia Urnium", "description": "Wydobywnie Ferrum"},
-        {"name": "Fabryka Slicon'u", "description": "Wydobywnie Ferrum"},
-        {"name": "Rafineria Hellium", "description": "Wydobywnie Ferrum"}
-    ];
+    constructor(private buildingsService: BuildingsService) {
+    }
+
+    ngOnInit(): void {
+        this.buildingsService.requestBuildingsData().subscribe((val: Object) => {
+            this.buildingsList = [];
+            for (let ct in val) {
+                this.buildingsList.push(new BuildingEntity().fromJSON(val[ct]));
+            }
+            this.isLoading = false;
+        });
+    }
+
 
 }
