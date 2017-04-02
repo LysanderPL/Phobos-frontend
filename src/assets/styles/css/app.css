@@ -4,6 +4,15 @@
     font-family: 'Jura', sans-serif;
 }
 
+.step {
+    opacity: 0;
+    transition: .5s ease-in-out all;
+}
+
+.show {
+    opacity: 1 !important;
+}
+
 .main-body-container {
     border-radius: 5px;
     background: rgba(215, 215, 215, 0.41);
