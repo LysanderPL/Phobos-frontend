@@ -1,7 +1,8 @@
 /**
  * Created by maciej on 23.03.17.
  */
-export class Planet {
+import {AbstractEntity} from "./abstract.entity";
+export class PlanetEntity extends AbstractEntity {
     name: string;
     imperialSystem: string;
     planetarySystem: string;
