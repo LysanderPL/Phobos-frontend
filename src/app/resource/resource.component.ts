@@ -3,21 +3,21 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {ResourcesService} from "../services/resources.service";
-import {Resources} from "../library/entities/resources";
+import {ResourcesEntity} from "../library/entities/resources.entity";
 @Component({
     selector: 'resource-bar',
     templateUrl: 'resource.component.html'
 })
 export class ResourceComponent implements OnInit {
 
-    private resources: Resources;
+    private resources: ResourcesEntity;
 
     constructor(private resourcesService: ResourcesService) {
     }
 
     ngOnInit(): void {
         this.resources = this.resourcesService.getResourcesEntity();
-        this.resourcesService.getResourcesSubject().subscribe((res: Resources) => this.resources = res);
+        this.resourcesService.getResourcesSubject().subscribe((res: ResourcesEntity) => this.resources = res);
     }
 
 }
