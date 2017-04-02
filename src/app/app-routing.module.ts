@@ -9,6 +9,7 @@ import {LoginComponent} from "./login/login.component";
 import {NgModule} from "@angular/core";
 import {NotFoundComponent} from "./not-found.component";
 import {BuildingsComponent} from "./buildings/buildings.component";
+import {GroundDefenseComponent} from "./ground-defense/ground-defense.component";
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'ground-defense',
+        component: GroundDefenseComponent
     },
     {path: '**', component: NotFoundComponent}
     // { path: 'home',   component: LoginComponent, canActivate: [AuthGuard] },

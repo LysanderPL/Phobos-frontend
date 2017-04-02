@@ -14,7 +14,8 @@ import {ResourceComponent} from "./resource/resource.component";
 import {BuildingsComponent} from "./buildings/buildings.component";
 import {PlanetService} from "./services/planet.service";
 import {ResourcesService} from "./services/resources.service";
-import {BuildingsPipe} from "./library/pipes/buildingsPipe";
+import {BuildingsPipe} from "./library/pipes/buildings.pipe";
+import {GroundDefenseComponent} from "./ground-defense/ground-defense.component";
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import {BuildingsPipe} from "./library/pipes/buildingsPipe";
         NotFoundComponent,
         ResourceComponent,
         BuildingsComponent,
+        GroundDefenseComponent,
         BuildingsPipe
     ],
     imports: [

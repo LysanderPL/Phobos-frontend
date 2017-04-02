@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Response, Http} from "@angular/http";
 import {PlanetService} from "./services/planet.service";
 
